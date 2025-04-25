@@ -10,7 +10,9 @@ body {
   font-family: "Pacifico", cursive;
   overflow: hidden;
 }
-
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
 .scene {
   width: 100%;
   max-width: 350px;
