@@ -1,6 +1,6 @@
 const card = document.getElementById("card");
 
-// Flip on any card click
+// Flip the card when clicking anywhere on the card
 card.addEventListener("click", () => {
   card.classList.toggle("is-flipped");
 
@@ -13,7 +13,7 @@ card.addEventListener("click", () => {
   }
 });
 
-// Sparkles
+// Sparkles animation
 const canvas = document.getElementById("sparkle-canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
