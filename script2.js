@@ -1,21 +1,16 @@
 const card = document.getElementById("card");
 
+// Flip on any card click
 card.addEventListener("click", () => {
-  if (!card.classList.contains("is-flipped")) {
-    card.classList.add("is-flipped");
+  card.classList.toggle("is-flipped");
 
+  if (card.classList.contains("is-flipped")) {
     confetti({
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
     });
   }
-});
-
-// Fix for mobile heart click
-document.querySelector(".heart").addEventListener("click", (e) => {
-  e.stopPropagation(); // Stop if needed
-  card.click(); // Trigger card flip
 });
 
 // Sparkles
@@ -36,7 +31,7 @@ function drawSparkles() {
   ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
   sparkles.forEach((s) => {
     ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2, false);
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
     ctx.fill();
   });
   moveSparkles();
