@@ -1,9 +1,9 @@
 const card = document.getElementById("card");
 
-card.addEventListener("click", (e) => {
-  card.classList.toggle("is-flipped");
+card.addEventListener("click", () => {
+  if (!card.classList.contains("is-flipped")) {
+    card.classList.add("is-flipped");
 
-  if (card.classList.contains("is-flipped")) {
     confetti({
       particleCount: 100,
       spread: 70,
@@ -12,7 +12,13 @@ card.addEventListener("click", (e) => {
   }
 });
 
-// 🌟 Sparkles
+// Fix for mobile heart click
+document.querySelector(".heart").addEventListener("click", (e) => {
+  e.stopPropagation(); // Stop if needed
+  card.click(); // Trigger card flip
+});
+
+// Sparkles
 const canvas = document.getElementById("sparkle-canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
