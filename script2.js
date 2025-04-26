@@ -1,23 +1,32 @@
+// Flip Card Logic
 const card = document.getElementById("card");
 
-// Flip the card when clicking anywhere on the card
-card.addEventListener("click", () => {
+function handleFlip(e) {
+  e.preventDefault(); // Prevent double tap issues
   card.classList.toggle("is-flipped");
 
   if (card.classList.contains("is-flipped")) {
     confetti({
-      particleCount: 100,
-      spread: 70,
+      particleCount: 150,
+      spread: 80,
       origin: { y: 0.6 },
     });
   }
-});
+}
 
-// Sparkles animation
+// Listen for both desktop click and mobile touch
+card.addEventListener("click", handleFlip);
+card.addEventListener("touchstart", handleFlip);
+
+// Sparkles background
 const canvas = document.getElementById("sparkle-canvas");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
 
 const sparkles = Array.from({ length: 100 }).map(() => ({
   x: Math.random() * canvas.width,
@@ -43,13 +52,22 @@ function moveSparkles() {
     if (s.y > canvas.height) {
       s.y = 0;
       s.x = Math.random() * canvas.width;
+      s.r = Math.random() * 1.5 + 0.5;
+      s.d = Math.random() * 2;
     }
   });
 }
 
 setInterval(drawSparkles, 30);
 
-window.addEventListener("resize", () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-});
+window.addEventListener("resize", resizeCanvas);
+
+// OPTIONAL: Auto-play background music on load (for mobile Safari fix)
+const bgMusic = document.getElementById("bg-music");
+document.body.addEventListener(
+  "touchstart",
+  () => {
+    bgMusic.play().catch(() => {});
+  },
+  { once: true }
+);
