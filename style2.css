@@ -140,7 +140,7 @@ p {
 .card-photo {
   width: 100%;
   height: auto;
-  max-height: 220px;
+  max-height: 250px;
   border-radius: 15px;
   margin-bottom: 20px;
   object-fit: cover;
@@ -156,7 +156,7 @@ p {
   }
 
   .card-photo {
-    max-height: 150px;
+    max-height: 180px;
   }
 
   .heart {
