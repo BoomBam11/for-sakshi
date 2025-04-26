@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
 body {
   background: linear-gradient(135deg, #f9a7b0, #fad0c4);
   height: 100vh;
@@ -17,7 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1200px; /* This adds the 3D perspective */
+  perspective: 1200px;
 }
 
 .card {
@@ -29,10 +31,6 @@ body {
   cursor: pointer;
   border-radius: 20px;
   will-change: transform;
-}
-
-.card.is-flipped {
-  transform: rotateY(180deg); /* Rotate the card */
 }
 
 .card:hover {
@@ -66,6 +64,10 @@ body {
   transform: rotateY(180deg);
 }
 
+.content {
+  padding: 25px;
+}
+
 .heart-wrapper {
   display: flex;
   justify-content: center;
@@ -91,6 +93,13 @@ body {
   background: radial-gradient(circle at 30% 30%, #ff5f8f, #ff1a54);
   border-radius: 50%;
   position: absolute;
+}
+.card-photo {
+  width: 80%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
 }
 
 .heart::before {
@@ -137,13 +146,17 @@ p {
   margin: 10px 0;
 }
 
+.is-flipped {
+  transform: rotateY(180deg);
+}
+
 .card-photo {
   width: 100%;
   height: auto;
-  max-height: 270px;
+  max-height: 220px;
   border-radius: 15px;
   margin-bottom: 20px;
-  object-fit: cover;
+  /* object-fit: cover; */
   object-position: center;
   display: block;
 }
@@ -156,7 +169,7 @@ p {
   }
 
   .card-photo {
-    max-height: 200px;
+    max-height: 210px;
   }
 
   .heart {
