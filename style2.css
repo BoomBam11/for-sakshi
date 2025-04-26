@@ -99,7 +99,7 @@ body {
   border-radius: 15px;
   margin-bottom: 15px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  object-fit: cover;
+/*   object-fit: cover; */
 }
 
 .heart::before {
